@@ -13,22 +13,22 @@ export class Character {
     }
 
     set attack(range) {
-        this.rangeAttack =  this.baseAttack * (1 - (range - 1) / 10) - this.stoned * (Math.log2(range) * 5);
+        this._attack =  this.baseAttack * (1 - (range - 1) / 10) - this.stoned * (Math.log2(range) * 5);
     }
     get attack() {
-        return this.rangeAttack;
+        return this._attack;
     }
 
     set stoned (isStoned) {
         if (isStoned) {
-            this.stonedAttack = 1;
+            this._stoned = 1;
         } else {
-            this.stonedAttack = 0;
+            this._stoned = 0;
         }
         
     }
     get stoned () {
-        return this.stonedAttack
+        return this._stoned
     }
 
 }

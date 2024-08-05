@@ -10,13 +10,14 @@ export class Character {
         this.level = 1;
         this.baseAttack = undefined;
         this.defence = undefined;
+        this.range = undefined;
     }
 
-    set attack(range) {
-        this._attack =  this.baseAttack * (1 - (range - 1) / 10) - this.stoned * (Math.log2(range) * 5);
+    set attack(baseAttack) {
+        this._attack =  this.baseAttack * (1 - (this.range - 1) / 10);
     }
     get attack() {
-        return this._attack;
+        return this._attack - this.stoned * (Math.log2(this.range) * 5);
     }
 
     set stoned (isStoned) {
